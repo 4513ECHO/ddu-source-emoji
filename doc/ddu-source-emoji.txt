@@ -8,11 +8,11 @@ Last change: 2022 Mar 18
 ==============================================================================
 CONTENTS					*ddu-source-emoji-contents*
 
-Introduction				|ddu-source-emoji-introdution|
-Install					|ddu-source-emoji-install|
-Examples				|ddu-source-emoji-examples|
-Params					|ddu-source-emoji-params|
-About					|ddu-source-emoji-about|
+Introduction					|ddu-source-emoji-introdution|
+Install						|ddu-source-emoji-install|
+Examples					|ddu-source-emoji-examples|
+Params						|ddu-source-emoji-params|
+About						|ddu-source-emoji-about|
 
 ==============================================================================
 INTRODUCTION					*ddu-source-emoji-introdution*
@@ -41,6 +41,10 @@ EXAMPLES					*ddu-source-emoji-examples*
 
 ==============================================================================
 PARAMS						*ddu-source-emoji-params*
+
+convertEmoji		boolean (default: |v:true|)
+	Set inserted emoji behavior. If it is true, emoji is inserted as
+	converted. (like `:smile:` -> 😄)
 
 ==============================================================================
 ABOUT						*ddu-source-emoji-about*

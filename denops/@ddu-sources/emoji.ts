@@ -7,7 +7,9 @@ import {
   EMOJIS_ALIAS,
 } from "https://pax.deno.dev/99x/emojideno/src/constants.ts";
 
-type Params = Record<never, never>;
+interface Params {
+  convertEmoji: boolean;
+}
 type Emojis = Record<string, string>;
 interface EmojiData {
   name: string;
@@ -30,7 +32,7 @@ function getEmojis(): EmojiData[] {
 export class Source extends BaseSource<Params, ActionData> {
   kind = "word";
 
-  gather(_args: GatherArguments<Params>): ReadableStream<Item<ActionData>[]> {
+  gather(args: GatherArguments<Params>): ReadableStream<Item<ActionData>[]> {
     return new ReadableStream({
       start(controller) {
         const emojis: EmojiData[] = getEmojis();
@@ -38,9 +40,9 @@ export class Source extends BaseSource<Params, ActionData> {
           emojis.map((i) => {
             return {
               word: i.name,
-              display: `${i.name}\t${i.emoji}`,
+              display: `${i.emoji}\t${i.name}`,
               action: {
-                text: i.emoji,
+                text: args.sourceParams.convertEmoji ? i.emoji : i.name,
               },
             };
           }),
@@ -51,6 +53,8 @@ export class Source extends BaseSource<Params, ActionData> {
   }
 
   params(): Params {
-    return {};
+    return {
+      convertEmoji: true,
+    };
   }
 }

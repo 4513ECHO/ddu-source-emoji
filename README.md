@@ -1,6 +1,6 @@
 # ddu-source-emoji
 
-emoji source for ddu.vim
+Emoji source for ddu.vim
 
 This source collects GitHub style emojis.
 

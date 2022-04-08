@@ -4,6 +4,8 @@ Emoji source for ddu.vim
 
 This source collects GitHub style emojis.
 
+Please read [help](doc/ddu-source-emoji.txt) for details.
+
 ## Requirements
 
 - [denops.vim](https://github.com/vim-denops/denops.vim)

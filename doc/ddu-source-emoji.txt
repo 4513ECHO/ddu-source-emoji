@@ -3,7 +3,7 @@
 Author: Hibiki <4513echo@gmail.com>
 License: MIT License
 URL: https://github.com/4513ECHO/ddu-source-emoji
-Last change: 2022 Mar 20
+Last change: 2022 Jul 17
 
 ==============================================================================
 CONTENTS					*ddu-source-emoji-contents*
@@ -18,6 +18,11 @@ About						|ddu-source-emoji-about|
 INTRODUCTION					*ddu-source-emoji-introdution*
 
 This source collects GitHub style emojis.
+
+Emojis data are fetched from `muan/unicode-emoji-json` which supports unicode
+emoji version `14.0`.
+
+https://github.com/muan/unicode-emoji-json
 
 ==============================================================================
 INSTALL						*ddu-source-emoji-install*

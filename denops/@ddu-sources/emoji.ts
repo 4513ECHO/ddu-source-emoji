@@ -2,40 +2,37 @@ import type { ActionData } from "https://pax.deno.dev/Shougo/ddu-kind-word/denop
 import type { GatherArguments } from "https://deno.land/x/ddu_vim@v1.8.7/base/source.ts";
 import type { Item } from "https://deno.land/x/ddu_vim@v1.8.7/types.ts";
 import { BaseSource } from "https://deno.land/x/ddu_vim@v1.8.7/types.ts";
-import {
-  EMOJIS,
-  EMOJIS_ALIAS,
-} from "https://pax.deno.dev/99x/emojideno/src/constants.ts";
+import EMOJIS from "https://unpkg.com/unicode-emoji-json@0.3.1/data-by-emoji.json" assert {
+  type: "json",
+};
 
 interface Params {
   convertEmoji: boolean;
 }
-type Emojis = Record<string, string>;
 interface EmojiData {
+  slug: string;
+}
+interface Emoji {
   name: string;
   emoji: string;
 }
 
-function getEmojis(): EmojiData[] {
-  const emojis = Object.entries(EMOJIS as Emojis).map(([key, value]) => ({
-    name: key,
-    emoji: value,
+function getEmojis(): Emoji[] {
+  return Object.entries(EMOJIS as Record<string, EmojiData>).map((
+    [key, value],
+  ): Emoji => ({
+    name: `:${value.slug}:`,
+    emoji: key,
   }));
-  emojis.push(
-    ...Object.entries(EMOJIS_ALIAS as Emojis).map(([key, value]) => ({
-      name: key,
-      emoji: value,
-    })),
-  );
-  return emojis;
 }
+
 export class Source extends BaseSource<Params, ActionData> {
   kind = "word";
 
   gather(args: GatherArguments<Params>): ReadableStream<Item<ActionData>[]> {
     return new ReadableStream({
       start(controller) {
-        const emojis: EmojiData[] = getEmojis();
+        const emojis: Emoji[] = getEmojis();
         controller.enqueue(
           emojis.map((i) => {
             return {

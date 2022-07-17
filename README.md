@@ -4,6 +4,10 @@ Emoji source for ddu.vim
 
 This source collects GitHub style emojis.
 
+Emojis data are fetched from
+[muan/unicode-emoji-json](https://github.com/muan/unicode-emoji-json) which
+supports unicode emoji version `14.0`.
+
 Please read [help](doc/ddu-source-emoji.txt) for details.
 
 ## Requirements
@@ -21,4 +25,3 @@ call ddu#start({'sources': [{'name': 'emoji'}]})
 " Insert emoji mapping.
 inoremap <C-x><C-e> <Cmd>call ddu#start({'sources': [{'name': 'emoji'}]})<CR>
 ```
-

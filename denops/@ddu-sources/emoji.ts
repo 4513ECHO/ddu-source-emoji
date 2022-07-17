@@ -1,7 +1,7 @@
 import type { ActionData } from "https://pax.deno.dev/Shougo/ddu-kind-word/denops/@ddu-kinds/word.ts";
-import type { GatherArguments } from "https://deno.land/x/ddu_vim@v1.5.0/base/source.ts";
-import type { Item } from "https://deno.land/x/ddu_vim@v1.5.0/types.ts";
-import { BaseSource } from "https://deno.land/x/ddu_vim@v1.5.0/types.ts";
+import type { GatherArguments } from "https://deno.land/x/ddu_vim@v1.8.7/base/source.ts";
+import type { Item } from "https://deno.land/x/ddu_vim@v1.8.7/types.ts";
+import { BaseSource } from "https://deno.land/x/ddu_vim@v1.8.7/types.ts";
 import {
   EMOJIS,
   EMOJIS_ALIAS,

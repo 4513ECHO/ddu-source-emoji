@@ -1,9 +1,9 @@
-*ddu-source-emoji.txt*			emoji source for ddu.vim
+*ddu-source-emoji.txt*				Emoji source for ddu.vim
 
 Author: Hibiki <4513echo@gmail.com>
 License: MIT License
 URL: https://github.com/4513ECHO/ddu-source-emoji
-Last change: 2022 Jul 17
+Last change: 2022 Dec 15
 
 ==============================================================================
 CONTENTS					*ddu-source-emoji-contents*
@@ -20,7 +20,7 @@ INTRODUCTION					*ddu-source-emoji-introdution*
 This source collects GitHub style emojis.
 
 Emojis data are fetched from `muan/unicode-emoji-json` which supports unicode
-emoji version `14.0`.
+emoji version `15.0`.
 
 https://github.com/muan/unicode-emoji-json
 
@@ -38,16 +38,25 @@ EXAMPLES					*ddu-source-emoji-examples*
 
 >
 	" Use emoji source.
-	call ddu#start({'sources': [{'name': 'emoji'}]})
-	
-	" Insert emoji mapping.
-	inoremap <C-x><C-e> <Cmd>call ddu#start({'sources': [{'name': 'emoji'}]})<CR>
+	call ddu#start(#{ sources: [#{ name: 'emoji' }] })
+
+	" Define mapping for insert mode.
+	" NOTE: You should use `feedkeys` action and set `replaceCol` param of
+	" ddu-ui-ff when start ddu from insert mode. see the help of ddu-ui-ff.
+	inoremap <C-x><C-e> <Cmd>call ddu#start(#{
+	      \ sources: [
+	      \   #{ name: 'emoji', options: #{ defaultAction: 'feedkeys' } },
+	      \ ],
+	      \ uiParams: #{
+	      \   ff: #{ replaceCol: col('.') }
+	      \ },
+	      \ })<CR>
 <
 
 ==============================================================================
 PARAMS						*ddu-source-emoji-params*
 
-convertEmoji		boolean (default: |v:true|)
+convertEmoji		|Boolean| (default: |v:true|)
 	Set inserted emoji behavior. If it is true, emoji is inserted as
 	converted. (like `:smile:` -> 😄)
 

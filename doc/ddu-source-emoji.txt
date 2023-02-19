@@ -73,7 +73,7 @@ A: Please set "convertEmoji" param to |v:false|.
 
 Q: I want to use |ddu-source-emoji| in |Insert| mode.
 
-A: To do it, |ddu-ui-ff| is recommended.
+A: To do it, using with |ddu-ui-ff| is recommended.
 You have to use |ddu-kind-word-action-feedkeys| for action and set
 |ddu-ui-ff-param-replaceCol|.
 

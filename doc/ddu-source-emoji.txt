@@ -3,7 +3,7 @@
 Author: Hibiki <4513echo@gmail.com>
 License: MIT License
 URL: https://github.com/4513ECHO/ddu-source-emoji
-Last change: 2022 Dec 15
+Last change: 2023 Feb 19
 
 ==============================================================================
 CONTENTS					*ddu-source-emoji-contents*
@@ -12,6 +12,7 @@ Introduction					|ddu-source-emoji-introdution|
 Install						|ddu-source-emoji-install|
 Examples					|ddu-source-emoji-examples|
 Params						|ddu-source-emoji-params|
+FAQ						|ddu-source-emoji-faq|
 About						|ddu-source-emoji-about|
 
 ==============================================================================
@@ -38,17 +39,16 @@ EXAMPLES					*ddu-source-emoji-examples*
 
 >
 	" Use emoji source.
-	call ddu#start(#{ sources: [#{ name: 'emoji' }] })
+	call ddu#start({ 'sources': [{ 'name': 'emoji' }] })
 
 	" Define mapping for insert mode.
-	" NOTE: You should use `feedkeys` action and set `replaceCol` param of
-	" ddu-ui-ff when start ddu from insert mode. see the help of ddu-ui-ff.
-	inoremap <C-x><C-e> <Cmd>call ddu#start(#{
-	      \ sources: [
-	      \   #{ name: 'emoji', options: #{ defaultAction: 'feedkeys' } },
+	" NOTE: `:help ddu-source-emoji-faq` for details.
+	inoremap <C-x><C-e> <Cmd>call ddustart({
+	      \ 'sources': [
+	      \   { 'name': 'emoji', 'options': { 'defaultAction': 'feedkeys' } },
 	      \ ],
-	      \ uiParams: #{
-	      \   ff: #{ replaceCol: col('.') }
+	      \ 'uiParams': {
+	      \   'ff': { 'replaceCol': col('.') }
 	      \ },
 	      \ })<CR>
 <
@@ -59,6 +59,33 @@ PARAMS						*ddu-source-emoji-params*
 convertEmoji		|Boolean| (default: |v:true|)
 	Set inserted emoji behavior. If it is true, emoji is inserted as
 	converted. (like `:smile:` -> 😄)
+
+==============================================================================
+FREQUENTLY ASKED QUESTIONS (FAQ)		*ddu-source-emoji-faq*
+
+Q: I want to insert the emoji as slug (like `:smile:`).
+
+A: Please set "convertEmoji" param to |v:false|.
+>
+	call ddu#custom##patch_global('sourceParams', {
+	      \ 'emoji': { 'convertEmoji': v:false },
+	      \ })
+
+Q: I want to use |ddu-source-emoji| in |Insert| mode.
+
+A: To do it, |ddu-ui-ff| is recommended.
+You have to use |ddu-kind-word-action-feedkeys| for action and set
+|ddu-ui-ff-param-replaceCol|.
+
+>
+	inoremap <C-x><C-e> <Cmd>call ddustart({
+	      \ 'sources': [
+	      \   { 'name': 'emoji', 'options': { 'defaultAction': 'feedkeys' } },
+	      \ ],
+	      \ 'uiParams': {
+	      \   'ff': { 'replaceCol': col('.') }
+	      \ },
+	      \ })<CR>
 
 ==============================================================================
 ABOUT						*ddu-source-emoji-about*

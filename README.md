@@ -20,17 +20,16 @@ Please read [help](doc/ddu-source-emoji.txt) for details.
 
 ```vim
 " Use emoji source.
-call ddu#start(#{ sources: [#{ name: 'emoji' }] })
+call ddu#start({ 'sources': [{ 'name': 'emoji' }] })
 
 " Define mapping for insert mode.
-" NOTE: You should use `feedkeys` action and set `replaceCol` param of
-" ddu-ui-ff when start ddu from insert mode. see the help of ddu-ui-ff.
-inoremap <C-x><C-e> <Cmd>call ddu#start(#{
-      \ sources: [
-      \   #{ name: 'emoji', options: #{ defaultAction: 'feedkeys' } },
+" NOTE: `:help ddu-source-emoji-faq` for details.
+inoremap <C-x><C-e> <Cmd>call ddustart({
+      \ 'sources': [
+      \   { 'name': 'emoji', 'options': { 'defaultAction': 'feedkeys' } },
       \ ],
-      \ uiParams: #{
-      \   ff: #{ replaceCol: col('.') }
+      \ 'uiParams': {
+      \   'ff': { 'replaceCol': col('.') }
       \ },
       \ })<CR>
 ```

@@ -3,7 +3,7 @@
 Author: Hibiki <4513echo@gmail.com>
 License: MIT License
 URL: https://github.com/4513ECHO/ddu-source-emoji
-Last change: 2023 Feb 19
+Last change: 2023 Mar 12
 
 ==============================================================================
 CONTENTS					*ddu-source-emoji-contents*
@@ -43,7 +43,7 @@ EXAMPLES					*ddu-source-emoji-examples*
 
 	" Define mapping for insert mode.
 	" NOTE: `:help ddu-source-emoji-faq` for details.
-	inoremap <C-x><C-e> <Cmd>call ddustart({
+	inoremap <C-x><C-e> <Cmd>call ddu#start({
 	      \ 'sources': [
 	      \   { 'name': 'emoji', 'options': { 'defaultAction': 'feedkeys' } },
 	      \ ],
@@ -78,7 +78,7 @@ You have to use |ddu-kind-word-action-feedkeys| for action and set
 |ddu-ui-ff-param-replaceCol|.
 
 >
-	inoremap <C-x><C-e> <Cmd>call ddustart({
+	inoremap <C-x><C-e> <Cmd>call ddu#start({
 	      \ 'sources': [
 	      \   { 'name': 'emoji', 'options': { 'defaultAction': 'feedkeys' } },
 	      \ ],

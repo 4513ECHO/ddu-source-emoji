@@ -24,7 +24,7 @@ call ddu#start({ 'sources': [{ 'name': 'emoji' }] })
 
 " Define mapping for insert mode.
 " NOTE: `:help ddu-source-emoji-faq` for details.
-inoremap <C-x><C-e> <Cmd>call ddustart({
+inoremap <C-x><C-e> <Cmd>call ddu#start({
       \ 'sources': [
       \   { 'name': 'emoji', 'options': { 'defaultAction': 'feedkeys' } },
       \ ],

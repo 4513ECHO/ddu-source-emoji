@@ -1,10 +1,10 @@
-import type { ActionData } from "https://deno.land/x/ddu_kind_word@v0.1.2/word.ts";
+import type { ActionData } from "jsr:@shougo/ddu-kind-word@^0.3.0";
 import {
   BaseSource,
   type GatherArguments,
-} from "https://deno.land/x/ddu_vim@v3.4.3/base/source.ts";
-import type { Item } from "https://deno.land/x/ddu_vim@v3.4.3/types.ts";
-import EMOJIS from "https://unpkg.com/unicode-emoji-json@0.5.0/data-by-emoji.json" with {
+} from "jsr:@shougo/ddu-vim@^5.0.0/source";
+import type { Item } from "jsr:@shougo/ddu-vim@^5.0.0/types";
+import EMOJIS from "https://unpkg.com/unicode-emoji-json@0.6.0/data-by-emoji.json" with {
   type: "json",
 };
 
@@ -13,11 +13,9 @@ export type Params = {
 };
 
 export class Source extends BaseSource<Params, ActionData> {
-  override kind = "word";
+  kind = "word";
 
-  override gather(
-    args: GatherArguments<Params>,
-  ): ReadableStream<Item<ActionData>[]> {
+  gather(args: GatherArguments<Params>): ReadableStream<Item<ActionData>[]> {
     const items = Object.entries(
       EMOJIS as Record<string, { slug: string }>,
     ).map(([emoji, { slug }]) => ({
@@ -27,15 +25,10 @@ export class Source extends BaseSource<Params, ActionData> {
         text: args.sourceParams.convertEmoji ? emoji : `:${slug}:`,
       },
     }));
-    return new ReadableStream({
-      start(controller) {
-        controller.enqueue(items);
-        controller.close();
-      },
-    });
+    return ReadableStream.from([items]);
   }
 
-  override params(): Params {
+  params(): Params {
     return {
       convertEmoji: true,
     };

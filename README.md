@@ -6,7 +6,7 @@ This source collects GitHub style emojis.
 
 Emojis data are fetched from
 [muan/unicode-emoji-json](https://github.com/muan/unicode-emoji-json) which
-supports unicode emoji version `15.0`.
+supports unicode emoji version `15.1`.
 
 Please read [help](doc/ddu-source-emoji.txt) for details.
 

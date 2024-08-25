@@ -4,7 +4,7 @@ import {
   type GatherArguments,
 } from "https://deno.land/x/ddu_vim@v3.4.3/base/source.ts";
 import type { Item } from "https://deno.land/x/ddu_vim@v3.4.3/types.ts";
-import EMOJIS from "https://unpkg.com/unicode-emoji-json@0.5.0/data-by-emoji.json" assert {
+import EMOJIS from "https://unpkg.com/unicode-emoji-json@0.5.0/data-by-emoji.json" with {
   type: "json",
 };
 

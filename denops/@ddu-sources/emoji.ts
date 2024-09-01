@@ -1,9 +1,9 @@
-import type { ActionData } from "jsr:@shougo/ddu-kind-word@^0.3.0";
+import type { ActionData } from "jsr:@shougo/ddu-kind-word@^0.4.1";
 import {
   BaseSource,
   type GatherArguments,
-} from "jsr:@shougo/ddu-vim@^5.0.0/source";
-import type { Item } from "jsr:@shougo/ddu-vim@^5.0.0/types";
+} from "jsr:@shougo/ddu-vim@^6.0.0/source";
+import type { Item } from "jsr:@shougo/ddu-vim@^6.0.0/types";
 import EMOJIS from "https://unpkg.com/unicode-emoji-json@0.6.0/data-by-emoji.json" with {
   type: "json",
 };

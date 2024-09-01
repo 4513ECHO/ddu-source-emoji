@@ -1,12 +1,12 @@
-*ddu-source-emoji.txt*				Emoji source for ddu.vim
+*ddu-source-emoji.txt*                                Emoji source for ddu.vim
 
 Author: Hibiki <mail@4513echo.dev>
 License: MIT License
 URL: https://github.com/4513ECHO/ddu-source-emoji
-Last change: 2024 Aug 25
+Last change: 2024 Sep 01
 
 ==============================================================================
-CONTENTS					*ddu-source-emoji-contents*
+CONTENTS                                           *ddu-source-emoji-contents*
 
 Introduction					|ddu-source-emoji-introdution|
 Install						|ddu-source-emoji-install|
@@ -16,7 +16,7 @@ FAQ						|ddu-source-emoji-faq|
 About						|ddu-source-emoji-about|
 
 ==============================================================================
-INTRODUCTION					*ddu-source-emoji-introdution*
+INTRODUCTION                                    *ddu-source-emoji-introdution*
 
 This source collects GitHub style emojis.
 
@@ -26,7 +26,7 @@ emoji version `15.1`.
 https://github.com/muan/unicode-emoji-json
 
 ==============================================================================
-INSTALL						*ddu-source-emoji-install*
+INSTALL                                             *ddu-source-emoji-install*
 
 Please install "|ddu|.vim", "|denops.vim|" and "|ddu-kind-word|".
 
@@ -35,34 +35,23 @@ https://github.com/vim-denops/denops.vim
 https://github.com/Shougo/ddu-kind-word
 
 ==============================================================================
-EXAMPLES					*ddu-source-emoji-examples*
+EXAMPLES                                           *ddu-source-emoji-examples*
 
 >
 	" Use emoji source.
 	call ddu#start({ 'sources': [{ 'name': 'emoji' }] })
-
-	" Define mapping for insert mode.
-	" NOTE: `:help ddu-source-emoji-faq` for details.
-	inoremap <C-x><C-e> <Cmd>call ddu#start({
-	      \ 'sources': [
-	      \   { 'name': 'emoji', 'options': { 'defaultAction': 'feedkeys' } },
-	      \ ],
-	      \ 'uiParams': {
-	      \   'ff': { 'replaceCol': col('.') }
-	      \ },
-	      \ })<CR>
 <
 
 ==============================================================================
-PARAMS						*ddu-source-emoji-params*
+PARAMS                                               *ddu-source-emoji-params*
 
-						*ddu-source-emoji-param-convertEmoji*
+                                         *ddu-source-emoji-param-convertEmoji*
 convertEmoji		|Boolean| (default: |v:true|)
 	Set inserted emoji behavior. If it is true, emoji is inserted as
 	converted. (like `:smile:` -> 😄)
 
 ==============================================================================
-FREQUENTLY ASKED QUESTIONS (FAQ)		*ddu-source-emoji-faq*
+FREQUENTLY ASKED QUESTIONS (FAQ)                        *ddu-source-emoji-faq*
 
 Q: I want to insert the emoji as slug (like `:smile:`).
 
@@ -89,7 +78,7 @@ You have to use |ddu-kind-word-action-feedkeys| for action and set
 	      \ })<CR>
 
 ==============================================================================
-ABOUT						*ddu-source-emoji-about*
+ABOUT                                                 *ddu-source-emoji-about*
 
 |ddu-source-emoji| is developed by Hibiki(4513ECHO) and licensed under the MIT
 License. Visit the project page for the latest version:

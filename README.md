@@ -21,15 +21,4 @@ Please read [help](doc/ddu-source-emoji.txt) for details.
 ```vim
 " Use emoji source.
 call ddu#start({ 'sources': [{ 'name': 'emoji' }] })
-
-" Define mapping for insert mode.
-" NOTE: `:help ddu-source-emoji-faq` for details.
-inoremap <C-x><C-e> <Cmd>call ddu#start({
-      \ 'sources': [
-      \   { 'name': 'emoji', 'options': { 'defaultAction': 'feedkeys' } },
-      \ ],
-      \ 'uiParams': {
-      \   'ff': { 'replaceCol': col('.') }
-      \ },
-      \ })<CR>
 ```

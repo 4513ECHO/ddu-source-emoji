@@ -15,15 +15,14 @@ export class Source extends BaseSource<Params, ActionData> {
   override gather(
     args: GatherArguments<Params>,
   ): ReadableStream<Item<ActionData>[]> {
-    const items = Object.entries(
-      EMOJIS as Record<string, { slug: string }>,
-    ).map(([emoji, { slug }]) => ({
-      word: `:${slug}:`,
-      display: `${emoji}\t:${slug}:`,
-      action: {
-        text: args.sourceParams.convertEmoji ? emoji : `:${slug}:`,
-      },
-    }));
+    const items: Item<ActionData>[] = Object.entries(EMOJIS)
+      .map(([emoji, { slug }]) => ({
+        word: `:${slug}:`,
+        display: `${emoji}\t:${slug}:`,
+        action: {
+          text: args.sourceParams.convertEmoji ? emoji : `:${slug}:`,
+        },
+      }));
     return ReadableStream.from([items]);
   }
 

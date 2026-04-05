@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "@shougo/ddu-kind-word": "jsr:@shougo/ddu-kind-word@^1.0.0",
+    "@shougo/ddu-vim": "jsr:@shougo/ddu-vim@^11.3.0",
+    "unicode-emoji-json": "npm:unicode-emoji-json@^0.8.0"
+  }
+}

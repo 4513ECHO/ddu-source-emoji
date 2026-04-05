@@ -1,10 +1,7 @@
-import type { ActionData } from "jsr:@shougo/ddu-kind-word@^0.4.1";
-import {
-  BaseSource,
-  type GatherArguments,
-} from "jsr:@shougo/ddu-vim@^6.0.0/source";
-import type { Item } from "jsr:@shougo/ddu-vim@^6.0.0/types";
-import EMOJIS from "https://unpkg.com/unicode-emoji-json@0.6.0/data-by-emoji.json" with {
+import type { ActionData } from "@shougo/ddu-kind-word";
+import { BaseSource, type GatherArguments } from "@shougo/ddu-vim/source";
+import type { Item } from "@shougo/ddu-vim/types";
+import EMOJIS from "unicode-emoji-json/data-by-emoji.json" with {
   type: "json",
 };
 
@@ -13,9 +10,11 @@ export type Params = {
 };
 
 export class Source extends BaseSource<Params, ActionData> {
-  kind = "word";
+  override kind = "word";
 
-  gather(args: GatherArguments<Params>): ReadableStream<Item<ActionData>[]> {
+  override gather(
+    args: GatherArguments<Params>,
+  ): ReadableStream<Item<ActionData>[]> {
     const items = Object.entries(
       EMOJIS as Record<string, { slug: string }>,
     ).map(([emoji, { slug }]) => ({
@@ -28,7 +27,7 @@ export class Source extends BaseSource<Params, ActionData> {
     return ReadableStream.from([items]);
   }
 
-  params(): Params {
+  override params(): Params {
     return {
       convertEmoji: true,
     };

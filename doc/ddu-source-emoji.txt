@@ -3,7 +3,7 @@
 Author: Hibiki <mail@4513echo.dev>
 License: MIT License
 URL: https://github.com/4513ECHO/ddu-source-emoji
-Last change: 2024 Sep 01
+Last change: 2026 Apr 05
 
 ==============================================================================
 CONTENTS                                           *ddu-source-emoji-contents*
@@ -20,8 +20,8 @@ INTRODUCTION                                    *ddu-source-emoji-introdution*
 
 This source collects GitHub style emojis.
 
-Emojis data are fetched from `muan/unicode-emoji-json` which supports unicode
-emoji version `15.1`.
+Emoji data are fetched from `muan/unicode-emoji-json`, which supports unicode
+emoji version `16.0`.
 
 https://github.com/muan/unicode-emoji-json
 
@@ -37,7 +37,7 @@ https://github.com/Shougo/ddu-kind-word
 ==============================================================================
 EXAMPLES                                           *ddu-source-emoji-examples*
 
->
+>vim
 	" Use emoji source.
 	call ddu#start({ 'sources': [{ 'name': 'emoji' }] })
 <
@@ -56,18 +56,18 @@ FREQUENTLY ASKED QUESTIONS (FAQ)                        *ddu-source-emoji-faq*
 Q: I want to insert the emoji as slug (like `:smile:`).
 
 A: Please set |ddu-source-emoji-param-convertEmoji| param to |v:false|.
->
+>vim
 	call ddu#custom##patch_global('sourceParams', {
 	      \ 'emoji': { 'convertEmoji': v:false },
 	      \ })
 
 Q: I want to use |ddu-source-emoji| in |Insert| mode.
 
-A: To do it, using with |ddu-ui-ff| is recommended.
+A: Following is an examples with |ddu-ui-ff|:
 You have to use |ddu-kind-word-action-feedkeys| for action and set
 |ddu-ui-ff-param-replaceCol|.
 
->
+>vim
 	inoremap <C-x><C-e> <Cmd>call ddu#start({
 	      \ 'sources': [
 	      \   { 'name': 'emoji', 'options': { 'defaultAction': 'feedkeys' } },
